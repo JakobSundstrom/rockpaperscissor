@@ -19,7 +19,7 @@
 
     <div class="moveDeclaration">
         <p>Make a move!</p>
-        <span id="personChoice"></span>
+        <p>Your move is: <span id="personChoice"></span></p>
     </div>
 
     <script>
@@ -46,20 +46,19 @@
           var rpsComputerArr = ["Rock", "Paper", "Scissor"];
           shuffle(rpsComputerArr);
           /*pick last element of the shuffled array as computer shoice*/
-          let ComputerChoice = rpsComputerArr.slice(-1);
+          let computerChoice = rpsComputerArr.slice(-1).toString();
           console.log(rpsComputerArr);
-          console.log(ComputerChoice);
+          console.log(computerChoice);
 
           /*create function for person choice*/
           var personChoice = ""
           function clickMe(){
-            personChoice = `You move is: ${document.getElementById("rps-games").value}`
+            personChoice = document.getElementById("rps-games").value.toString();
             document.getElementById("personChoice").innerHTML = personChoice;
             return personChoice;
           }
           /*gets the updated personChoice*/
           document.getElementById("personChoice").innerHTML = personChoice;
-        
           
           
           
