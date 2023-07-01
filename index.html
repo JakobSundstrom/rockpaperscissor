@@ -13,7 +13,7 @@
         <option value="Paper">Paper</option> 
         <option value="Scissors">Scissors</option> 
     </select>
-    <button type="submit">Submit</button>
+    <button type="submit" onclick= "clickMe()">Submit</button>
     <script>
         /*shuffel rock paper scissors*/
         function shuffle(array) {
@@ -41,6 +41,15 @@
           let ComputerChoice = rpsComputerArr.slice(-1);
           console.log(rpsComputerArr);
           console.log(ComputerChoice);
+
+          /*create function for person choice*/
+          var personChoice = "Choose a move!"
+          function clickMe(){
+            personChoice = `You move is: ${document.getElementById("rps-games").value}`
+            return personChoice;
+          }
+          
+          
           
     </script>
     
