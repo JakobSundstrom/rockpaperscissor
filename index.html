@@ -43,7 +43,7 @@
           }
           
          /*create  array*/ 
-          var rpsComputerArr = ["Rock", "Paper", "Scissor"];
+          var rpsComputerArr = ["Rock", "Paper", "Scissors"];
           shuffle(rpsComputerArr);
           /*pick last element of the shuffled array as computer shoice*/
           let computerChoice = rpsComputerArr.slice(-1).toString();
@@ -57,7 +57,44 @@
             document.getElementById("personChoice").innerHTML = personChoice;
             return personChoice;
           }
+
+          /*add conditionals to match the moves made*/
           
+          /*results in draw*/
+          if(personChoice === "Rock" && computerChoice === "Rock"){ 
+
+          }
+          else if (personChoice === "Paper" && computerChoice === "Paper" ){
+
+          }
+          else if (personChoice === "Scissor" && computerChoice === "Scissors"){
+            
+          }
+
+          /*results in win*/
+          else if (personChoice === "Paper" && computerChoice === "Rock" ){
+
+          }
+          else if (personChoice === "Scissor" && computerChoice === "Paper"){
+          
+          }
+          else if (personChoice === "Rock" && computerChoice === "Scissors"){
+          
+          }
+
+          /*results in loss*/
+          else if (personChoice === "Paper" && computerChoice === "Scissors" ){
+
+          }
+          else if (personChoice === "Scissor" && computerChoice === "Rock"){
+          
+          }
+          else if (personChoice === "Rock" && computerChoice === "Paper"){
+          
+          }
+    
+
+         
           
           
     </script>
