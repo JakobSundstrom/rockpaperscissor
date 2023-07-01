@@ -20,6 +20,7 @@
     <div class="moveDeclaration">
         <p>Make a move!</p>
         <p>Your move is: <span id="personChoice"></span></p>
+        <p>Computer move is: <span id="computerChoice"></span></p>
     </div>
 
     <div class="gameResult">
@@ -69,6 +70,7 @@
           /*create conditionals function*/
           function conditionalFunc(){
 
+            document.getElementById("computerChoice").innerHTML = computerChoice;
             /*add conditionals to match the moves made*/
             /*results in draw*/
             if(personChoice === "Rock" && computerChoice === "Rock"){ 
