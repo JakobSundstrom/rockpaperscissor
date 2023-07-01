@@ -6,14 +6,22 @@
     <title>RPS</title>
 </head>
 <body>
-    <h1>Rock Paper Scissors!</h1>
-    <label for="rps-game">Choose a move:</label> 
-    <select name="rps-games" id="rps-games"> 
-        <option value="Rock">Rock</option> 
-        <option value="Paper">Paper</option> 
-        <option value="Scissors">Scissors</option> 
-    </select>
-    <button type="submit" onclick= "clickMe()">Submit</button>
+    <div class="startingScreen">
+        <h1>Rock Paper Scissors!</h1>
+        <label for="rps-game">Choose a move:</label> 
+        <select name="rps-games" id="rps-games"> 
+            <option value="Rock">Rock</option> 
+            <option value="Paper">Paper</option> 
+            <option value="Scissors">Scissors</option> 
+        </select>
+        <button type="submit" onclick= "clickMe()">Submit</button>
+    </div>
+
+    <div class="moveDeclaration">
+        <p>Make a move!</p>
+        <span id="personChoice"></span>
+    </div>
+
     <script>
         /*shuffel rock paper scissors*/
         function shuffle(array) {
@@ -43,11 +51,15 @@
           console.log(ComputerChoice);
 
           /*create function for person choice*/
-          var personChoice = "Choose a move!"
+          var personChoice = ""
           function clickMe(){
             personChoice = `You move is: ${document.getElementById("rps-games").value}`
+            document.getElementById("personChoice").innerHTML = personChoice;
             return personChoice;
           }
+          /*gets the updated personChoice*/
+          document.getElementById("personChoice").innerHTML = personChoice;
+        
           
           
           
