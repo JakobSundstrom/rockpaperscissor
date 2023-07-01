@@ -4,31 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPS</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="startingScreen">
-        <h1>Rock Paper Scissors!</h1>
-        <label for="rps-game">Choose a move:</label> 
+    <div class="interFaceBox">
+        <h1 class="header">Rock Paper Scissors!</h1>
+
+        <h3>Make a move!</h3>
+    
+        <label for="rps-game"></label> 
         <select name="rps-games" id="rps-games"> 
             <option value="Rock">Rock</option> 
             <option value="Paper">Paper</option> 
             <option value="Scissors">Scissors</option> 
         </select>
-        <button type="submit" onclick= "clickMe(); conditionalFunc(); ">Submit</button>
-    </div>
-
+        <button type="submit" onclick= "clickMe(); conditionalFunc(); ">Play</button>
+    
     <div class="moveDeclaration">
-        <p>Make a move!</p>
-        <p>Your move is: <span id="personChoice"></span></p>
-        <p>Computer move is: <span id="computerChoice"></span></p>
+        <p><span id="personChoice"></span><span id="versus"></span><span id="computerChoice"></span></p>
     </div>
 
     <div class="gameResult">
-        <p>Game result: <span id="printResult"></span></p>
+        <p>Result: <span id="printResult"></span></p>
     </div>
 
-    <button onClick="window.location.reload();">Play again</button>
 
+    <button onClick="window.location.reload();">Play again</button>
+</div>
     <script>
         /*shuffel rock paper scissors*/
         function shuffle(array) {
@@ -64,12 +66,12 @@
             document.getElementById("personChoice").innerHTML = personChoice;
             return personChoice;
           }
-          var printResult = "The game is on!"
+          var printResult = ""
           document.getElementById("printResult").innerHTML = printResult;
           
           /*create conditionals function*/
           function conditionalFunc(){
-
+            document.getElementById("versus").innerHTML = " vs ";
             document.getElementById("computerChoice").innerHTML = computerChoice;
             /*add conditionals to match the moves made*/
             /*results in draw*/

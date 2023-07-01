@@ -1,0 +1,62 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: lightskyblue;
+}
+
+h3,
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+
+.yourMove,
+.computerMove{
+    justify-content: flex-start;
+}
+
+select{
+    margin: auto auto auto 8px;
+}
+
+.interFaceBox{
+    background-color: lightgrey;
+    width: 416px;
+    border-radius: 20px;
+    border: 2px solid black;
+    box-shadow: 5px 5px;
+    
+    margin: auto;
+    margin-top: 200px;
+}
+
+button{
+    font-weight: 700;
+    display: flex;
+    width: 100px;
+    background-color:skyblue;
+    margin: auto auto 50px auto;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+select{
+    width: 200px;
+    margin: 15px 100px;
+    padding: 5px;
+}
+
+.gameResult{
+    width: 200px;
+    margin: 0px 100px;
+    padding: 5px;
+    font-size: 24px;
+} 
+
+.moveDeclaration{
+    width: 200px;
+    margin: 0px 100px;
+    padding: 5px;
+    font-size: 18px;
+} 
+
