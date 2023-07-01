@@ -14,12 +14,16 @@
             <option value="Paper">Paper</option> 
             <option value="Scissors">Scissors</option> 
         </select>
-        <button type="submit" onclick= "clickMe()">Submit</button>
+        <button type="submit" onclick= "clickMe(); conditionalFunc(); ">Submit</button>
     </div>
 
     <div class="moveDeclaration">
         <p>Make a move!</p>
         <p>Your move is: <span id="personChoice"></span></p>
+    </div>
+
+    <div class="gameResult">
+        <p>Game result: <span id="printResult"></span></p>
     </div>
 
     <script>
@@ -57,46 +61,75 @@
             document.getElementById("personChoice").innerHTML = personChoice;
             return personChoice;
           }
-
-          /*add conditionals to match the moves made*/
+          var printResult = "The game is on!"
+          document.getElementById("printResult").innerHTML = printResult;
           
-          /*results in draw*/
-          if(personChoice === "Rock" && computerChoice === "Rock"){ 
+          /*create conditionals function*/
+          function conditionalFunc(){
 
-          }
-          else if (personChoice === "Paper" && computerChoice === "Paper" ){
+            /*add conditionals to match the moves made*/
+            /*results in draw*/
+            if(personChoice === "Rock" && computerChoice === "Rock"){ 
+              printResult = "Draw!"
+              document.getElementById("printResult").innerHTML = printResult;
+              return printResult;
+              console.log(printResult)
+            }
+            else if (personChoice === "Paper" && computerChoice === "Paper" ){
+            printResult = "Draw!"
+              document.getElementById("printResult").innerHTML = printResult;
+              return printResult;
+              console.log(printResult)
+            }
+            else if (personChoice === "Scissors" && computerChoice === "Scissors"){
+                printResult = "Draw!"
+              document.getElementById("printResult").innerHTML = printResult;
+              return printResult;
+              console.log(printResult)
+            }
+            /*results in win*/
+            else if (personChoice === "Rock" && computerChoice === "Scissors"){
+                printResult = "You win!"
+              document.getElementById("printResult").innerHTML = printResult;
+              return printResult;
+              console.log(printResult)
+            }
+            else if (personChoice === "Paper" && computerChoice === "Rock"){
+                printResult = "You win!"
+              document.getElementById("printResult").innerHTML = printResult;
+              return printResult;
+              console.log(printResult)
+            }
+            else if (personChoice === "Scissors" && computerChoice === "Paper"){
+                printResult = "You win!"
+              document.getElementById("printResult").innerHTML = printResult;
+              return printResult;
+              console.log(printResult)
+            }
 
-          }
-          else if (personChoice === "Scissor" && computerChoice === "Scissors"){
+            /*results in loss*/
+            else if (personChoice === "Rock" && computerChoice === "Paper"){
+                printResult = "You lose..."
+              document.getElementById("printResult").innerHTML = printResult;
+              return printResult;
+              console.log(printResult)
+            }
+            else if (personChoice === "Paper" && computerChoice === "Scissors"){
+                printResult = "You lose..."
+              document.getElementById("printResult").innerHTML = printResult;
+              return printResult;
+              console.log(printResult)
+            }
+            else if (personChoice === "Scissors" && computerChoice === "Rock"){
+                printResult = "You lose..."
+              document.getElementById("printResult").innerHTML = printResult;
+              return printResult;
+              console.log(printResult)
+            }
             
-          }
-
-          /*results in win*/
-          else if (personChoice === "Paper" && computerChoice === "Rock" ){
-
-          }
-          else if (personChoice === "Scissor" && computerChoice === "Paper"){
-          
-          }
-          else if (personChoice === "Rock" && computerChoice === "Scissors"){
-          
-          }
-
-          /*results in loss*/
-          else if (personChoice === "Paper" && computerChoice === "Scissors" ){
-
-          }
-          else if (personChoice === "Scissor" && computerChoice === "Rock"){
-          
-          }
-          else if (personChoice === "Rock" && computerChoice === "Paper"){
-          
-          }
-    
-
-         
-          
-          
+            
+        }
+     
     </script>
     
 </body>
