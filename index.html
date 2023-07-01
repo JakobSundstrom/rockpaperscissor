@@ -15,7 +15,33 @@
     </select>
     <button type="submit">Submit</button>
     <script>
-
+        /*shuffel rock paper scissors*/
+        function shuffle(array) {
+            let currentIndex = array.length,  randomIndex;
+          
+            // While there remain elements to shuffle.
+            while (currentIndex != 0) {
+          
+              // Pick a remaining element.
+              randomIndex = Math.floor(Math.random() * currentIndex);
+              currentIndex--;
+          
+              // And swap it with the current element.
+              [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
+            }
+          
+            return array;
+          }
+          
+         /*create  array*/ 
+          var rpsComputerArr = ["Rock", "Paper", "Scissor"];
+          shuffle(rpsComputerArr);
+          /*pick last element of the shuffled array as computer shoice*/
+          let ComputerChoice = rpsComputerArr.slice(-1);
+          console.log(rpsComputerArr);
+          console.log(ComputerChoice);
+          
     </script>
     
 </body>
