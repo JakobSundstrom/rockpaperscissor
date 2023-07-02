@@ -18,10 +18,14 @@
             <option value="Paper">Paper</option> 
             <option value="Scissors">Scissors</option> 
         </select>
-        <button type="submit" onclick= "clickMe(); conditionalFunc(); ">Play</button>
+        <button type="submit" onclick= "clickMe(); conditionalFunc(); game() ">Play</button>
     
     <div class="moveDeclaration">
         <p><span id="personChoice"></span><span id="versus"></span><span id="computerChoice"></span></p>
+    </div>
+
+    <div class="counter">
+        <p><span id="gameCounter"></span></p>
     </div>
 
     <div class="gameResult">
@@ -62,6 +66,8 @@
           /*create function for person choice*/
           var personChoice = ""
           function clickMe(){
+            counter += 1
+
             personChoice = document.getElementById("rps-games").value.toString();
             document.getElementById("personChoice").innerHTML = personChoice;
             return personChoice;
@@ -133,7 +139,18 @@
               console.log(printResult)
             }
             
-            
+        }
+        var counter = 0;
+        var gameCounter = "Games: 0/5"
+        document.getElementById("gameCounter").innerHTML = gameCounter;
+        console.log(counter)
+        function game(){
+            while (counter < 5){
+                gameCounter = `Games: ${counter}/5`
+                document.getElementById("gameCounter").innerHTML = gameCounter;
+                return gameCounter;
+            }
+
         }
      
     </script>
