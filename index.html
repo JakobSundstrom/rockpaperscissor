@@ -18,7 +18,7 @@
             <option value="Paper">Paper</option> 
             <option value="Scissors">Scissors</option> 
         </select>
-        <button type="submit" onclick= "clickMe(); conditionalFunc(); game(); shuffle(rpsComputerArr); reloadComputerChoice(); gameResultFunc();">Play</button>
+        <button id="playButton" type="submit" onclick= "clickMe(); conditionalFunc(); game(); shuffle(rpsComputerArr); reloadComputerChoice(); gameResultFunc();">Play</button>
     
     <div class="moveDeclaration">
         <p>Moves: <span id="personChoice"></span><span id="versus"></span><span id="computerChoice"></span></p>
@@ -35,8 +35,9 @@
         <p><span id="printResult"></span></p>
     </div>
 
-
-    <button onClick="window.location.reload();">Play again</button>
+    <div>
+        <button id="btnSubmit" onclick= window.location.reload(); disabled = "true" >Play again</button>
+    </div>
 </div>
     <script>
         /*shuffel rock paper scissors*/
@@ -205,6 +206,14 @@
             if (wins  == lose && counter === 5){
                 printResult = "DRAW!"
                 document.getElementById("printResult").innerHTML = printResult;
+            }
+
+            /*play again alert*/
+            var btnSubmit = document.getElementById("btnSubmit");
+            var playButton = document.getElementById("playButton");
+            if  (counter == 5){
+                btnSubmit.disabled = false;
+                playButton.disabled = true;
             }
         }
 
