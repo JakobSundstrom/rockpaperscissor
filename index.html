@@ -18,7 +18,7 @@
             <option value="Paper">Paper</option> 
             <option value="Scissors">Scissors</option> 
         </select>
-        <button type="submit" onclick= "clickMe(); conditionalFunc(); game() ">Play</button>
+        <button type="submit" onclick= "clickMe(); conditionalFunc(); game(); shuffle(rpsComputerArr); reloadComputerChoice()">Play</button>
     
     <div class="moveDeclaration">
         <p><span id="personChoice"></span><span id="versus"></span><span id="computerChoice"></span></p>
@@ -37,8 +37,8 @@
 </div>
     <script>
         /*shuffel rock paper scissors*/
-        function shuffle(array) {
-            let currentIndex = array.length,  randomIndex;
+        function shuffle(rpsComputerArr) {
+            let currentIndex = rpsComputerArr.length,  randomIndex;
           
             // While there remain elements to shuffle.
             while (currentIndex != 0) {
@@ -48,11 +48,17 @@
               currentIndex--;
           
               // And swap it with the current element.
-              [array[currentIndex], array[randomIndex]] = [
-                array[randomIndex], array[currentIndex]];
+              [rpsComputerArr[currentIndex], rpsComputerArr[randomIndex]] = [
+              rpsComputerArr[randomIndex], rpsComputerArr[currentIndex]];
             }
           
-            return array;
+            return rpsComputerArr;
+          }
+
+          function reloadComputerChoice(){
+            computerChoice = shuffle(rpsComputerArr).slice(-1).toString();
+            return computerChoice;
+            console.log(computerChoice)
           }
           
          /*create  array*/ 
@@ -145,11 +151,21 @@
         document.getElementById("gameCounter").innerHTML = gameCounter;
         console.log(counter)
         function game(){
-            while (counter < 5){
+            while (counter <= 5){
                 gameCounter = `Games: ${counter}/5`
                 document.getElementById("gameCounter").innerHTML = gameCounter;
                 return gameCounter;
             }
+
+            if (counter === 6){
+                printResult = "GAME OVER"
+                document.getElementById("printResult").innerHTML = printResult;
+                return printResult;
+                gameCounter = ``
+                document.getElementById("gameCounter").innerHTML = gameCounter;
+                return gameCounter;
+            }
+
 
         }
      
