@@ -18,7 +18,7 @@
             <option value="Paper">Paper</option> 
             <option value="Scissors">Scissors</option> 
         </select>
-        <button type="submit" onclick= "clickMe(); conditionalFunc(); game(); shuffle(rpsComputerArr); reloadComputerChoice()">Play</button>
+        <button type="submit" onclick= "clickMe(); conditionalFunc(); game(); shuffle(rpsComputerArr); reloadComputerChoice(); gameResultFunc();">Play</button>
     
     <div class="moveDeclaration">
         <p>Moves: <span id="personChoice"></span><span id="versus"></span><span id="computerChoice"></span></p>
@@ -32,7 +32,7 @@
     </div>
 
     <div class="gameResult">
-        <p>Result: <span id="printResult"></span></p>
+        <p><span id="printResult"></span></p>
     </div>
 
 
@@ -92,21 +92,21 @@
             /*results in draw*/
             if(personChoice === "Rock" && computerChoice === "Rock"){ 
                 draw += 1;
-                printResult = "Draw!"
+                printResult = "tie"
                 document.getElementById("gameDraw").innerHTML = draw;
                 document.getElementById("printResult").innerHTML = printResult;
               return printResult;
             }
             else if (personChoice === "Paper" && computerChoice === "Paper" ){
                 draw += 1;
-                printResult = "Draw!"
+                printResult = "tie"
                 document.getElementById("gameDraw").innerHTML = draw;
                 document.getElementById("printResult").innerHTML = printResult;
               return printResult;
             }
             else if (personChoice === "Scissors" && computerChoice === "Scissors"){
                 draw += 1;
-                printResult = "Draw!"
+                printResult = "tie"
                 document.getElementById("gameDraw").innerHTML = draw;
                 document.getElementById("printResult").innerHTML = printResult;
               return printResult;
@@ -114,21 +114,21 @@
             /*results in win*/
             else if (personChoice === "Rock" && computerChoice === "Scissors"){
                 wins += 1;
-                printResult = "You win!"
+                printResult = "win"
                 document.getElementById("gameWins").innerHTML = wins;
                 document.getElementById("printResult").innerHTML = printResult;
               return printResult;
             }
             else if (personChoice === "Paper" && computerChoice === "Rock"){
                 wins += 1;
-                printResult = "You win!"
+                printResult = "win"
                 document.getElementById("gameWins").innerHTML = wins;
                 document.getElementById("printResult").innerHTML = printResult;
               return printResult;
             }
             else if (personChoice === "Scissors" && computerChoice === "Paper"){
                 wins += 1;
-                printResult = "You win!"
+                printResult = "win"
                 document.getElementById("gameWins").innerHTML = wins;
                 document.getElementById("printResult").innerHTML = printResult;
               return printResult;
@@ -137,21 +137,21 @@
             /*results in loss*/
             else if (personChoice === "Rock" && computerChoice === "Paper"){
                 lose += 1;
-                printResult = "You lose..."
+                printResult = "lose"
                 document.getElementById("gameLose").innerHTML = lose;
                 document.getElementById("printResult").innerHTML = printResult;
               return printResult;
             }
             else if (personChoice === "Paper" && computerChoice === "Scissors"){
                 lose += 1;
-                printResult = "You lose..."
+                printResult = "lose"
                 document.getElementById("gameLose").innerHTML = lose;
                 document.getElementById("printResult").innerHTML = printResult;
               return printResult;
             }
             else if (personChoice === "Scissors" && computerChoice === "Rock"){
                 lose += 1;
-                printResult = "You lose..."
+                printResult = "lose"
                 document.getElementById("gameLose").innerHTML = lose;
                 document.getElementById("printResult").innerHTML = printResult;
               return printResult;
@@ -182,20 +182,32 @@
                 document.getElementById("gameCounter").innerHTML = gameCounter;
                 return gameCounter;
             }
-
-            if (printResult === "You win!"){
-                wins += 1;
-                return wins;
-                console.log(wins)
-            }
-            else if(printResult === "You lose..."){
-                lose += 1;
-                return lose;
-                console.log(lose)
-            }
             
 
         }
+
+        /*game result function*/
+        gameResult = ""
+
+        function gameResultFunc(){
+            /*more wins than losses*/
+            if (wins  > lose && counter === 5){
+                printResult = "YOU WIN!"
+                document.getElementById("printResult").innerHTML = printResult;
+            }
+            /*more losses than wins*/
+            if (wins  < lose && counter === 5){
+                printResult = "YOU LOSE!"
+                document.getElementById("printResult").innerHTML = printResult;
+            }
+        
+            /*the game is a draw*/
+            if (wins  == lose && counter === 5){
+                printResult = "DRAW!"
+                document.getElementById("printResult").innerHTML = printResult;
+            }
+        }
+
      
     </script>
     
